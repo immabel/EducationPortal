@@ -15,5 +15,11 @@
         Task UpdateInformationAsync(Course course);
 
         Task<IEnumerable<Skill>> GetSkillsAsync(int courseId);
+
+        Task<IEnumerable<BookMaterial>> GetBookMaterialsAsync(int courseId);
+
+        Task<IEnumerable<ArticleMaterial>> GetArticleMaterialsAsync(int courseId);
+
+        Task<IEnumerable<VideoMaterial>> GetVideoMaterialsAsync(int courseId);
     }
 }

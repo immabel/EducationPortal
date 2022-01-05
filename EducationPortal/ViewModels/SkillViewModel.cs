@@ -1,6 +1,6 @@
 ﻿namespace EducationPortal.ViewModels
 {
-    public class UserSkillViewModel
+    public class SkillViewModel
     {
         public int Id { get; set; }
 

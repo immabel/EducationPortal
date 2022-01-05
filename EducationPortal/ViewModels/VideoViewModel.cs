@@ -1,6 +1,6 @@
 ﻿namespace EducationPortal.ViewModels
 {
-    public class VideoMaterialViewModel
+    public class VideoViewModel
     {
         public string Duration { get; set; }
 

@@ -8,7 +8,8 @@
     {
         public MappingProfile()
         {
-            this.CreateMap<Skill, UserSkillViewModel>().ReverseMap();
+            this.CreateMap<Skill, SkillViewModel>().ReverseMap();
+            this.CreateMap<ArticleMaterial, ArticleViewModel>().ReverseMap();
         }
     }
 }

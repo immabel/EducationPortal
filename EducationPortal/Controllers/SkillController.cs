@@ -24,7 +24,7 @@
 
         [AllowAnonymous]
         [HttpPost("create")]
-        public async Task<IActionResult> CreateAsync(UserSkillViewModel model)
+        public async Task<IActionResult> CreateAsync(SkillViewModel model)
         {
             try
             {
@@ -40,10 +40,10 @@
 
         [AllowAnonymous]
         [HttpGet("getAll")]
-        public async Task<IEnumerable<UserSkillViewModel>> GetAllAsync()
+        public async Task<IEnumerable<SkillViewModel>> GetAllAsync()
         {
             var skills = await this.skillService.GetAllSkillsAsync();
-            return this.mapper.Map<IEnumerable<UserSkillViewModel>>(skills);
+            return this.mapper.Map<IEnumerable<SkillViewModel>>(skills);
         }
     }
 }

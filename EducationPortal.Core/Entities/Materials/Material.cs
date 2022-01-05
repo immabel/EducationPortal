@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
 
-    public class Material : BaseEntity
+    public abstract class Material : BaseEntity
     {
         public DateTimeOffset CreatedAt { get; set; }
 

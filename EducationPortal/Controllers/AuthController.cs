@@ -37,7 +37,7 @@
         [HttpGet("example")]
         public IActionResult Example()
         {
-            return Ok();
+            return this.Ok();
         }
 
         [AllowAnonymous]

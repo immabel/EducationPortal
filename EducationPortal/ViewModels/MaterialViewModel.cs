@@ -6,6 +6,6 @@
 
         public string Name { get; set; }
 
-        public int Status { get; set; }
+        public int IsPassed { get; set; }
     }
 }

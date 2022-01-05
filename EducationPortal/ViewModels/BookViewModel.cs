@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    public class BookMaterialViewModel : MaterialViewModel
+    public class BookViewModel : MaterialViewModel
     {
         public string Format { get; set; }
 

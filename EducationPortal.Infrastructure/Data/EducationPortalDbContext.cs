@@ -134,7 +134,7 @@
         {
             builder.ToTable("ArticleMaterial");
             builder.Property(a => a.DateOfPublishing).IsRequired();
-            builder.Property(a => a.ResourseLocation).IsRequired();
+            builder.Property(a => a.ResourceLocation).IsRequired();
         }
 
         protected void VideoMaterialConfigure(EntityTypeBuilder<VideoMaterial> builder)

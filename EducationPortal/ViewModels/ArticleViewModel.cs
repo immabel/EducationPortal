@@ -1,8 +1,8 @@
-﻿namespace EducationPortal.Core.Entities
+﻿namespace EducationPortal.ViewModels
 {
     using System;
 
-    public class ArticleMaterial : Material
+    public class ArticleViewModel : MaterialViewModel
     {
         public DateTimeOffset DateOfPublishing { get; set; }
 
