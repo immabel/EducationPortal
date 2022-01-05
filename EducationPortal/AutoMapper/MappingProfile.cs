@@ -10,6 +10,7 @@
         {
             this.CreateMap<Skill, SkillViewModel>().ReverseMap();
             this.CreateMap<ArticleMaterial, ArticleViewModel>().ReverseMap();
+            this.CreateMap<VideoMaterial, VideoViewModel>().ReverseMap();
         }
     }
 }
