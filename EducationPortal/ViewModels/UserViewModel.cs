@@ -16,6 +16,6 @@
 
         public string PlaceWork { get; set; }
 
-        public List<string> Skills { get; set; }
+        public List<UserSkillViewModel> Skills { get; set; }
     }
 }

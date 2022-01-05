@@ -1,4 +1,4 @@
-﻿namespace EducationPortal.Core.Interfaces.Services
+﻿namespace EducationPortal.Core.Interfaces
 {
     using EducationPortal.Core.Entities;
     using System.Collections.Generic;

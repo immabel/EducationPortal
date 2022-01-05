@@ -1,12 +1,12 @@
 namespace EducationPortal
 {
+    using EducationPortal.AutoMapper;
     using EducationPortal.Core.Interfaces;
     using EducationPortal.Infrastructure;
     using EducationPortal.Infrastructure.Data;
     using EducationPortal.Infrastructure.Services;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
-    using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
@@ -28,7 +28,10 @@ namespace EducationPortal
             services.AddScoped<DbContext, EducationPortalDbContext>();
 
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-            services.AddScoped<IAuthService, AuthService>();
+            services.AddTransient<IAuthService, AuthService>();
+            services.AddTransient<ISkillService, SkillService>();
+
+            services.AddAutoMapper(typeof(MappingProfile));
 
             services.AddControllers();
 

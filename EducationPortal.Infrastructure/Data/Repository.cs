@@ -57,11 +57,6 @@ namespace EducationPortal.Infrastructure.Data
             return await query.FirstOrDefaultAsync();
         }
 
-        private void Include(ExpressionSpecification<T> expressionSpecification)
-        {
-            throw new NotImplementedException();
-        }
-
         public void ModifyState(T entity)
         {
             throw new NotImplementedException();
@@ -83,6 +78,11 @@ namespace EducationPortal.Infrastructure.Data
         {
             this.context.Set<T>().Update(entity);
             await this.context.SaveChangesAsync();
+        }
+
+        private void Include(ExpressionSpecification<T> expressionSpecification)
+        {
+            throw new NotImplementedException();
         }
     }
 }

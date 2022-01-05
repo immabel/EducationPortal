@@ -1,4 +1,4 @@
-﻿namespace EducationPortal.Core.Interfaces.Services
+﻿namespace EducationPortal.Core.Interfaces
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
