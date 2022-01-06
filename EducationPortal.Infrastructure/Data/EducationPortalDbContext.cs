@@ -21,6 +21,8 @@
 
         public DbSet<VideoMaterial> VideoMaterials { get; set; }
 
+        public DbSet<Author> Authors { get; set; }
+
         public EducationPortalDbContext(DbContextOptions<EducationPortalDbContext> dbContextOptions)
             : base(dbContextOptions)
         {

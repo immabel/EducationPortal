@@ -30,6 +30,7 @@ namespace EducationPortal
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddTransient<IAuthService, AuthService>();
             services.AddTransient<ISkillService, SkillService>();
+            services.AddTransient<ICourseService, CourseService>();
             services.AddTransient(typeof(IMaterialService<>), typeof(MaterialService<>));
 
             services.AddAutoMapper(typeof(MappingProfile));

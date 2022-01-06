@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,6 +21,18 @@ namespace EducationPortal.Infrastructure.Data
 
         public async Task AddAsync(T entity)
         {
+            this.context.ChangeTracker.TrackGraph(entity, e =>
+            {
+                if (e.Entry.IsKeySet)
+                {
+                    e.Entry.State = EntityState.Unchanged;
+                }
+                else
+                {
+                    e.Entry.State = EntityState.Added;
+                }
+            });
+
             await this.context.Set<T>().AddAsync(entity);
             await this.context.SaveChangesAsync();
         }
@@ -35,26 +48,40 @@ namespace EducationPortal.Infrastructure.Data
             return await this.context.Set<T>().Where(expressionSpecification.Expression).AsNoTracking().ToListAsync();
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync()
-        {
-            return await this.context.Set<T>().AsNoTracking().ToListAsync();
-        }
-
         public async Task<T> GetByIdAsync(int id) => await this.context.Set<T>().FindAsync(id);
 
         public async Task<T> GetAsync(ExpressionSpecification<T> expressionSpecification)
         {
             var query = this.context.Set<T>().Where(expressionSpecification.Expression);
 
-            if (expressionSpecification.Includes != null)
+            SetIncludes(query, expressionSpecification.Includes);
+
+            return await query.FirstOrDefaultAsync();
+        }
+
+        public async Task<IEnumerable<T>> GetAllAsync(ExpressionSpecification<T> expressionSpecification = default)
+        {
+            var query = this.context.Set<T>().AsNoTracking();
+
+            if (expressionSpecification != default)
             {
-                foreach (var include in expressionSpecification.Includes)
+                query = SetIncludes(query, expressionSpecification.Includes);
+            }
+
+            return await query.ToListAsync();
+        }
+
+        private static IQueryable<T> SetIncludes(IQueryable<T> query, List<Expression<Func<T, object>>> includes)
+        {
+            if (includes != null)
+            {
+                foreach (var include in includes)
                 {
                     query = query.Include(include);
                 }
             }
 
-            return await query.FirstOrDefaultAsync();
+            return query;
         }
 
         public void ModifyState(T entity)

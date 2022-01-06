@@ -22,6 +22,17 @@
             await this.materialRepository.AddAsync(material);
         }
 
-        public async Task<IEnumerable<T>> GetAllMaterialsAsync() => await this.materialRepository.GetAllAsync();
+        public async Task<IEnumerable<T>> GetMaterialsForCourseAsync(int courseId)
+        {
+            var expression = new ExpressionSpecification<T>(x => x.Courses.Exists(c => c.Id == courseId));
+            return await this.materialRepository.FindAsync(expression);
+        }
+
+        public async Task<IEnumerable<T>> GetAllMaterialsAsync(ExpressionSpecification<T> expression = default)
+        {
+            var materials = await this.materialRepository.GetAllAsync(expression);
+
+            return materials;
+        }
     }
 }

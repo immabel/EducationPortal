@@ -20,7 +20,7 @@
 
         Task<T> GetAsync(ExpressionSpecification<T> expressionSpecification);
 
-        Task<IEnumerable<T>> GetAllAsync();
+        Task<IEnumerable<T>> GetAllAsync(ExpressionSpecification<T> expressionSpecification = default);
 
         void RemoveRange(IEnumerable<T> entities);
 

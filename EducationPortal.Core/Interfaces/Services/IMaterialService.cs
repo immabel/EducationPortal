@@ -9,6 +9,8 @@
     {
         Task CreateAsync(T material);
 
-        Task<IEnumerable<T>> GetAllMaterialsAsync();
+        Task<IEnumerable<T>> GetMaterialsForCourseAsync(int courseId);
+
+        Task<IEnumerable<T>> GetAllMaterialsAsync(ExpressionSpecification<T> expression = default);
     }
 }

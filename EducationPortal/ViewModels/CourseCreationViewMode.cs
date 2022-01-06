@@ -10,12 +10,15 @@
 
         public int CreatorId { get; set; }
 
-        public List<int> Skills { get; set; }
+        public List<SkillViewModel> Skills { get; set; }
 
-        public List<int> BookMaterials { get; set; }
+        public List<MaterialViewModel> Materials { get; set; }
 
-        public List<int> ArticleMaterials { get; set; }
+        // may change
+        /*public List<BookViewModel> BookMaterials { get; set; }
 
-        public List<int> VideoMaterials { get; set; }
+        public List<ArticleViewModel> ArticleMaterials { get; set; }
+
+        public List<VideoViewModel> VideoMaterials { get; set; }*/
     }
 }
